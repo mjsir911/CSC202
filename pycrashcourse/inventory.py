@@ -1,0 +1,26 @@
+class Footwear:
+	"""
+	  >>> f = Footwear('Sling-back', 8.5, '1234-0')
+	  >>> f.style
+	  'Sling-back'
+	  >>> f.size
+	  8.5
+	  >>> f.sku
+	  '1234-0'
+	  >>> f.type
+	  'Unspecified'
+	  >>> f.print_size()
+	  'size 8-1/2'
+	  >>> f2 = Footwear('Hightop', 10, '1234-19')
+	  >>> f2.print_size()
+	  'size 10'
+	  >>> print(f)
+	  Sling-back (size 8-1/2)
+	  >>> print(f2)
+	  Hightop (size 10)
+	"""
+
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()
