@@ -1,3 +1,4 @@
+from numbers import Number
 class Footwear():
 	"""
 	  >>> f = Footwear('Sling-back', 8.5, '1234-0')
@@ -19,13 +20,13 @@ class Footwear():
 	  >>> print(f2)
 	  Hightop (size 10)
 	"""
-	def __init__(self, style, size, sku, type='Unspecified'):
+	def __init__(self, style: str, size: Number, sku: str, type='Unspecified'):
 		self.style = style
 		self.size = size
 		self.sku = sku
 		self.type = type
 
-	def print_size(self):
+	def print_size(self) -> str:
 		import fractions
 		size = fractions.Fraction(self.size)
 		decimal = abs(size - int(size))
@@ -35,7 +36,7 @@ class Footwear():
 		else:
 			return 'size {}'.format(whole_num)
 
-	def __str__(self):
+	def __str__(self) -> str:
 		return '{} ({})'.format(self.style, self.print_size())
 
 
