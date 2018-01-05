@@ -1,0 +1,3 @@
+[submodule "book/3/csc202"]
+	path = shared
+	url = git@gitlab.com:jelkner/csc202.git
