@@ -23,8 +23,8 @@ sortfunc = sorting_algorithms.get(argv[1], insertionSort) if len(argv) > 1 else 
 import numpy as np
 
 height = 1
-width = 100
-mul = 10
+width = 300
+mul = 5
 screenarray = [Color(random.randint(0, 0xFFFFFF)) for _ in range(width)]
 
 
@@ -35,11 +35,15 @@ import pygame
 pygame.init()
 scale = 7
 from pygame.locals import *
-screen = pygame.display.set_mode((height * mul, width * mul), DOUBLEBUF | HWSURFACE)
+screen = pygame.display.set_mode((width * mul, height * mul), DOUBLEBUF | HWSURFACE)
 pygame.event.set_allowed([QUIT, KEYDOWN, KEYUP])
 
 import time
 for state in IncrementalSorter(sortfunc, screenarray):
+    time.sleep(0.001)
     state = [int(c) for c in state]
-    pygame.surfarray.blit_array(screen, scaleup(np.array([state])))
+    state = np.array([state])
+    state = np.transpose(state)
+    state = scaleup(state)
+    pygame.surfarray.blit_array(screen, state)
     pygame.display.flip()
