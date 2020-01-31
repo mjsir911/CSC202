@@ -58,19 +58,19 @@ class Color():
 
     def _hilbert(self):
         import hilbert
-        return hilbert.Hilbert_to_int((self.r * 255, self.g * 255, self.b * 255))
+        return hilbert.Hilbert_to_int((self.r * 255,
+                                       self.g * 255,
+                                       self.b * 255))
 
     _sort_method = _hue
 
-
-
     def __eq__(self, other):
-        return int(self) == int(other)
+        return self._sort_method() == other._sort_method()
 
     def __lt__(self, other):
-        from time import sleep
-        while not step:
-            sleep(0.0000000001)
-
         return self._sort_method() < other._sort_method()
+
+
+    def __repr__(self):
+        return f'Color(#{self.r}{self.g}{self.b})'
 
